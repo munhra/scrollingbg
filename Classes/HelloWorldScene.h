@@ -27,7 +27,7 @@ public:
     void createScrolling();
     void moveBgRightToLeft();
 
-	// just a comment
+	// just a comment to test the push
 };
 
 #endif // __HELLOWORLD_SCENE_H__
