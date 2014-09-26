@@ -26,6 +26,8 @@ public:
     void update(float dt);
     void createScrolling();
     void moveBgRightToLeft();
+
+	// just a comment
 };
 
 #endif // __HELLOWORLD_SCENE_H__
