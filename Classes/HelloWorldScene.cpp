@@ -51,7 +51,7 @@ bool HelloWorld::init()
 
 	// add a label shows "Hello World"
 	// create and initialize a label
-	CCLabelTTF* pLabel = CCLabelTTF::create("Hello World", "Thonburi", 34);
+	CCLabelTTF* pLabel = CCLabelTTF::create("InfinityBG", "Thonburi", 34);
 
 	// ask director the window size
 	CCSize size = CCDirector::sharedDirector()->getWinSize();
@@ -63,7 +63,7 @@ bool HelloWorld::init()
 	this->addChild(pLabel, 1);
 
 	// add "HelloWorld" splash screen"
-	CCSprite* pSprite = CCSprite::create("HelloWorld.png");
+	CCSprite* pSprite = CCSprite::create("images.png");
 
 	// position the sprite on the center of the screen
 	pSprite->setPosition( ccp(size.width/2, size.height/2) );
@@ -85,29 +85,44 @@ void HelloWorld::update(float dt) {
 
 void HelloWorld::moveBgRightToLeft(){
 
-	visibleBG->setPosition(ccpAdd(visibleBG->getPosition(), ccp(-10, 0)));
-	rightBG->setPosition(ccpAdd(rightBG->getPosition(), ccp(-10, 0)));
+	visibleBG->setPosition(ccpAdd(visibleBG->getPosition(), ccp(+10 , + 5.6)));
+	visibleBG2->setPosition(ccpAdd(visibleBG->getPosition(), ccp(-960 , 0)));
 
-	if (visibleBG->getPosition().x <= -1280){
+	rightBG->setPosition(ccpAdd(rightBG->getPosition(), ccp(+10, +5.6)));
+	rightBG2->setPosition(ccpAdd(rightBG->getPosition(), ccp(+960, 0)));
+
+	if (visibleBG->getPosition().x >= 960){
 		CCLOG("Change BG");
 		CCSprite *bgaux = visibleBG;
 		visibleBG = rightBG;
 		rightBG = bgaux;
-		rightBG->setPosition(ccp(1280,0));
+		rightBG->setPosition(ccp(-960,-538));
 	}
 }
 
 void HelloWorld::createScrolling(){
 
-	visibleBG = CCSprite::create("HelloWorld.png");
+	visibleBG = CCSprite::create("images.png");
 	visibleBG->setAnchorPoint(ccp(0, 0));
 	visibleBG->setPosition(ccp(0, 0));
 	this->addChild(visibleBG,0);
 
-	rightBG = CCSprite::create("HelloWorld.png");
+	rightBG = CCSprite::create("images.png");
 	rightBG->setAnchorPoint(ccp(0, 0));
-	rightBG->setPosition(ccp(1280, 0));
+	rightBG->setPosition(ccp(-960, -538));
 	this->addChild(rightBG,0);
+
+	rightBG2 = CCSprite::create("images.png");
+	rightBG2->setAnchorPoint(ccp(0, 0));
+	rightBG2->setPosition(ccp(+960, 0));
+	this->addChild(rightBG2,0);
+
+	visibleBG2 = CCSprite::create("images.png");
+	visibleBG2->setAnchorPoint(ccp(0, 0));
+	visibleBG2->setPosition(ccp(-1920, -538));
+	this->addChild(visibleBG2,0);
+
+
 
 }
 
