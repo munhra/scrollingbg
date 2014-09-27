@@ -85,15 +85,20 @@ void HelloWorld::update(float dt) {
 
 void HelloWorld::moveBgRightToLeft(){
 
-	visibleBG->setPosition(ccpAdd(visibleBG->getPosition(), ccp(-10, 0)));
-	rightBG->setPosition(ccpAdd(rightBG->getPosition(), ccp(-10, 0)));
+	visibleBG->setPosition(ccpAdd(visibleBG->getPosition(), ccp(-10, -5.625)));
+	rightBG->setPosition(ccpAdd(rightBG->getPosition(), ccp(-10, -5.625)));
+	uprightBG->setPosition(ccpAdd(uprightBG->getPosition(), ccp(-10, -5.625)));
+	upleftBG->setPosition(ccpAdd(upleftBG->getPosition(), ccp(-10, -5.625)));
 
-	if (visibleBG->getPosition().x <= -1280){
+
+	if ((visibleBG->getPosition().x <= -1280) && (visibleBG->getPosition().y <= -720)){
 		CCLOG("Change BG");
 		CCSprite *bgaux = visibleBG;
-		visibleBG = rightBG;
-		rightBG = bgaux;
+		visibleBG = uprightBG;
+		uprightBG = bgaux;
 		rightBG->setPosition(ccp(1280,0));
+		uprightBG->setPosition(ccp(1280,720));
+		upleftBG->setPosition(ccp(0,720));
 	}
 }
 
@@ -108,6 +113,17 @@ void HelloWorld::createScrolling(){
 	rightBG->setAnchorPoint(ccp(0, 0));
 	rightBG->setPosition(ccp(1280, 0));
 	this->addChild(rightBG,0);
+
+	uprightBG = CCSprite::create("HelloWorld.png");
+	uprightBG->setAnchorPoint(ccp(0, 0));
+	uprightBG->setPosition(ccp(1280, 720));
+	this->addChild(uprightBG,0);
+
+	upleftBG = CCSprite::create("HelloWorld.png");
+	upleftBG->setAnchorPoint(ccp(0, 0));
+	upleftBG->setPosition(ccp(0, 720));
+	this->addChild(upleftBG,0);
+
 
 }
 
