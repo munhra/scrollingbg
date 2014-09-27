@@ -35,7 +35,7 @@ bool AppDelegate::applicationDidFinishLaunching()
 
     // run
     pDirector->runWithScene(pScene);
-
+//teste
     return true;
 }
 
