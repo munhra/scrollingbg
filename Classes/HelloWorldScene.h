@@ -8,8 +8,6 @@ using namespace cocos2d;
 class HelloWorld : public cocos2d::CCLayer
 {
 public:
-//teste
-//
     // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
     virtual bool init();  
 
@@ -24,6 +22,8 @@ public:
 
     CCSprite *visibleBG;
     CCSprite *rightBG;
+    CCSprite *upRightBG;
+    CCSprite *upBG;
 
     void update(float dt);
     void createScrolling();
