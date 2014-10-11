@@ -22,8 +22,6 @@ public:
 
     CCSprite *visibleBG;
     CCSprite *rightBG;
-    CCSprite *upRightBG;
-    CCSprite *upBG;
 
     void update(float dt);
     void createScrolling();
