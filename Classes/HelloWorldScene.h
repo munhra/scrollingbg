@@ -28,6 +28,8 @@ public:
     void update(float dt);
     void createScrolling();
     void moveBgRightToLeft();
+
+	// just a comment to test the push
 };
 
 #endif // __HELLOWORLD_SCENE_H__
